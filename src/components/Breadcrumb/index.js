@@ -4,7 +4,7 @@ import { BiChevronRight } from "react-icons/bi";
 
 const Breadcrumb = (props) => {
   const { primary } = props;
-  console.log("ini", primary);
+  // console.log("ini", primary);
   const Wrapper = styled.section`
     display: flex;
     justify-content: center;
@@ -16,7 +16,7 @@ const Breadcrumb = (props) => {
     height: 30px;
     border-radius: 50%;
     color: white;
-    background: ${primary !== undefined ? "orange" : "white"};
+    background: orange;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,16 +24,23 @@ const Breadcrumb = (props) => {
   const Title = styled.h1`
     font-size: 10px;
     color: orange;
-    margin: 0 5px 0 5px;
+    margin: 0 15px 0 15px;
   `;
+  const SecondCircle = styled(Circle)`
+  background: #fedebe;
+  margin-left: 20px
+  `
   return (
     <>
       <Wrapper>
         <Circle>1</Circle>
         <Title>Delivery</Title>
         <BiChevronRight color="orange" />
-        <div>1</div>
-        <div>1</div>
+        <SecondCircle>2</SecondCircle>
+        <Title>Payment</Title>
+        <BiChevronRight color="orange" />
+        <SecondCircle>3</SecondCircle>
+        <Title>Finish</Title>
       </Wrapper>
     </>
   );

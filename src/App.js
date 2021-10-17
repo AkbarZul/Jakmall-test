@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import Breadcrumb from './components/Breadcrumb';
+import {Breadcrumb} from './components';
 
 function App() {
   return (
     <div className="App">
-      <Breadcrumb primary='1' />
+      <Breadcrumb />
     </div>
   );
 }
