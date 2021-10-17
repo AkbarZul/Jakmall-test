@@ -6,7 +6,7 @@
 
 .delivery__left {
     width: 70%;
-    border-right: 1px solid black;
+    border-right: 2px solid #fedebe;
 }
 
 .delivery__left-up {
@@ -25,10 +25,23 @@
     display: flex;
     align-items: center;
     padding: 5px;
+    margin-right: 20px;
+}
+
+.delivery__left-container-inputdown{
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
 }
 
 .delivery__left-text-container {
    font-size: 10px;
+}
+
+.delivery__left-container-down {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .delivery__left-down {
@@ -52,10 +65,50 @@
     font-size: 20px;
     font-weight: bold;
     color: orange;
-    margin-top: 35px;
+    margin: 35px 20px;
 }
 
 .delivery__right-subtext-up {
     font-size: 10px;
+    margin-left: 20px;
     /* margin-top: 3px; */
+}
+
+.delivery__right-container-cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 200px;
+}
+
+.delivery__right-text-cost {
+    font-size: 15px;
+    margin-left: 20px;
+}
+.delivery__right-text-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.delivery__right-container-fee{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -20px;
+}
+
+.delivery__right-container-button {
+    display: flex;
+    justify-content: center;
+}
+
+.delivery__right-button {
+    width: 190px;
+    height: 40px;
+    background: orange;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
 }
