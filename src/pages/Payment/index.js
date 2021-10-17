@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BreadcrumbPayment, Back, CardPayment } from "../../components";
 
 import "./payment.css";
 
 const Payment = () => {
-    const [check, setCheck] = useState(false)
-    console.log('ini check', check)
+  const [check, setCheck] = useState(false);
+  console.log("ini check", check);
   const shipment = [
     {
       id: 1,
@@ -27,21 +27,21 @@ const Payment = () => {
 
   const Payment = [
     {
-        id: 1,
-        name: "e-wallet",
-        price: 1500000,
-      },
-      {
-        id: 1,
-        name: "Bank Transfer",
-        price: 1000000,
-      },
-      {
-        id: 1,
-        name: "Virtual Account",
-        price: 500000,
-      },
-  ]
+      id: 1,
+      name: "e-wallet",
+      price: 1500000,
+    },
+    {
+      id: 1,
+      name: "Bank Transfer",
+      price: 1000000,
+    },
+    {
+      id: 1,
+      name: "Virtual Account",
+      price: 500000,
+    },
+  ];
 
   console.log(shipment);
   return (
@@ -55,13 +55,26 @@ const Payment = () => {
           <p className="payment__left-text-up">Shipment</p>
           <div className="payment__left-containerbutton">
             {shipment.map((item, i) => (
-              <CardPayment key={i} name={item.name} price={item.price} onCheck={check} />
+              <CardPayment
+                key={i}
+                name={item.name}
+                price={item.price}
+                onCheck={check}
+              />
             ))}
           </div>
           <p className="payment__left-text-up">Payment</p>
-          <div className="payment__left-containerbutton" onClick={() => setCheck(!check)}>
-          {Payment.map((item, i) => (
-              <CardPayment key={i} name={item.name} price={item.price} onCheck={check} />
+          <div
+            className="payment__left-containerbutton"
+            onClick={() => setCheck(!check)}
+          >
+            {Payment.map((item, i) => (
+              <CardPayment
+                key={i}
+                name={item.name}
+                price={item.price}
+                onCheck={check}
+              />
             ))}
           </div>
         </div>
