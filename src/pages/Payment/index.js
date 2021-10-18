@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BreadcrumbPayment, Back, CardPayment } from "../../components";
 
@@ -6,6 +6,7 @@ import "./payment.css";
 
 const Payment = () => {
   const [check, setCheck] = useState(false);
+  const [send, setSend] = useState(false);
   console.log("ini check", check);
   const shipment = [
     {
@@ -14,12 +15,12 @@ const Payment = () => {
       price: 15000,
     },
     {
-      id: 1,
+      id: 2,
       name: "JNE",
       price: 9000,
     },
     {
-      id: 1,
+      id: 3,
       name: "Personal Counter",
       price: 29000,
     },
@@ -43,6 +44,16 @@ const Payment = () => {
     },
   ];
 
+  useEffect(() => {
+    // storing input email
+    localStorage.setItem("shipment", JSON.stringify(shipment));
+    // localStorage.setItem("totalnull", JSON.stringify(totalnull));
+  }, [shipment]);
+
+  const checkShipment = () => {
+   console.log('ini id click', send)
+  };
+
   console.log(shipment);
   return (
     <>
@@ -53,28 +64,30 @@ const Payment = () => {
       <div className="payment">
         <div className="payment__left">
           <p className="payment__left-text-up">Shipment</p>
-          <div className="payment__left-containerbutton">
-            {shipment.map((item, i) => (
-              <CardPayment
-                key={i}
-                name={item.name}
-                price={item.price}
-                onCheck={check}
-              />
-            ))}
-          </div>
+          <form value={send} onChange={(e) => {
+            setSend(e.target.value)
+          }}>
+            <div
+              className="payment__left-containerbutton"
+            >
+              {shipment.map((item, i) => (
+                <CardPayment
+                  key={i}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  onSubmit={checkShipment}
+                />
+              ))}
+            </div>
+          </form>
           <p className="payment__left-text-up">Payment</p>
           <div
             className="payment__left-containerbutton"
             onClick={() => setCheck(!check)}
           >
             {Payment.map((item, i) => (
-              <CardPayment
-                key={i}
-                name={item.name}
-                price={item.price}
-                onCheck={check}
-              />
+              <CardPayment key={i} name={item.name} price={item.price} />
             ))}
           </div>
         </div>
