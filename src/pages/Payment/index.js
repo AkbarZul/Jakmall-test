@@ -11,9 +11,42 @@ const Payment = () => {
   const [ewallet, setEwallet] = useState(0);
   const [bank, setBank] = useState(0);
   const [virtual, setVirtual] = useState(0);
-  const gosend = 15000;
-  const jne = 9000;
-  const personal = 29000;
+  let gosend = 0;
+  let jne = 0;
+  let personal = 0;
+  // let totalSemua = gosend + jne + personal + total + totalnull;
+  // const cost = localStorage.getItem("cost")
+  const [cost, setCost] = useState(() => {
+    const local = localStorage.getItem("cost");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [dropshiping, setDropshiping] = useState(() => {
+    const local = localStorage.getItem("dropshiping");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [dropshipingnol, setDropshipingNol] = useState(() => {
+    const local = localStorage.getItem("dropshipingnol");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [total, setTotal] = useState(() => {
+    const local = localStorage.getItem("total");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [totalnull, setTotalNull] = useState(() => {
+    const local = localStorage.getItem("totalnull");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [checkbox, setCheckbox] = useState(() => {
+    const local = localStorage.getItem("checkbox");
+    const init = JSON.parse(local);
+    return init || "";
+  });
+  console.log("payment chec", checkbox);
   return (
     <>
       <BreadcrumbPayment />
@@ -88,18 +121,33 @@ const Payment = () => {
               className="payment__right-text-cost"
               style={{ fontWeight: "bold" }}
             >
-              500,000
+              {cost}
             </p>
           </div>
-          <div className="payment__right-container-fee">
-            <p className="payment__right-text-cost">Dropshipping Fee</p>
-            <p
-              className="payment__right-text-cost"
-              style={{ fontWeight: "bold" }}
-            >
-              5,900
-            </p>
-          </div>
+          {/* <div className="payment__right-container-fee"> */}
+          {checkbox === true ? (
+            <div className="payment__right-container-fee">
+              <p className="payment__right-text-cost">Dropshipping Fee</p>
+              <p
+                className="payment__right-text-cost"
+                style={{ fontWeight: "bold" }}
+              >
+                {dropshiping}
+              </p>
+            </div>
+          ) : (
+            <div className="payment__right-container-fee">
+              <p className="payment__right-text-cost">Dropshipping Fee</p>
+              <p
+                className="payment__right-text-cost"
+                style={{ fontWeight: "bold" }}
+              >
+                {dropshipingnol}
+              </p>
+            </div>
+          )}
+
+          {/* </div> */}
 
           {coba === 1 ? (
             <div className="payment__right-container-fee">
@@ -108,7 +156,7 @@ const Payment = () => {
                 className="payment__right-text-cost"
                 style={{ fontWeight: "bold" }}
               >
-                {gosend}
+                {gosend = 15000}
               </p>
             </div>
           ) : send === 2 ? (
@@ -118,7 +166,7 @@ const Payment = () => {
                 className="payment__right-text-cost"
                 style={{ fontWeight: "bold" }}
               >
-                {jne}
+                {jne = 9000}
               </p>
             </div>
           ) : check === 3 ? (
@@ -130,21 +178,33 @@ const Payment = () => {
                 className="payment__right-text-cost"
                 style={{ fontWeight: "bold" }}
               >
-                {personal}
+                {personal = 29000}
               </p>
             </div>
           ) : null}
           {/* <p className="payment__right-text-cost">Gosend shipment</p> */}
-
-          <div className="payment__right-container-fee">
-            <p
-              className="payment__right-text-total"
-              style={{ color: "orange" }}
-            >
-              Total
-            </p>
-            <p className="payment__right-text-total">505,900</p>
-          </div>
+          {checkbox === true ? (
+            <div className="payment__right-container-fee">
+              <p
+                className="payment__right-text-total"
+                style={{ color: "orange" }}
+              >
+                Total
+              </p>
+              <p className="payment__right-text-total">{gosend + jne + personal + total}</p>
+            </div>
+          ) : (
+            <div className="payment__right-container-fee">
+              <p
+                className="payment__right-text-total"
+                style={{ color: "orange" }}
+              >
+                Total
+              </p>
+              <p className="payment__right-text-total">{gosend + jne + personal + totalnull}</p>
+            </div>
+          )}
+          
           <div className="payment__right-container-button">
             {ewallet === 1 ? (
               <Link to="/payment">
