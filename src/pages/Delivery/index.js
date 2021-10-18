@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Breadcrumb, Back } from "../../components";
-// import { BiArrowBack } from "react-icons/bi";
-import { VscClose } from "react-icons/vsc";
 import { useForm } from "react-hook-form";
 import useFormPersist from "react-hook-form-persist";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -41,7 +39,11 @@ const Delivery = () => {
   const cost = 500000;
   const total = cost + dropshiping;
   const totalnull = cost + dropshipingnol;
-  // const history = useHistory();
+  useEffect(() => {
+    // storing input email
+    localStorage.setItem("total", JSON.stringify(total));
+    localStorage.setItem("totalnull", JSON.stringify(totalnull));
+  }, [total, totalnull]);
   const onSubmit = (data, e) => console.log(data, e);
   return (
     <>
@@ -176,17 +178,13 @@ const Delivery = () => {
                 Total
               </p>
               {checkbox === true ? (
-                <p className="delivery__right-text-total">
-                  {total}
-                </p>
+                <p className="delivery__right-text-total">{total}</p>
               ) : (
-                <p className="delivery__right-text-total">
-                  {totalnull}
-                </p>
+                <p className="delivery__right-text-total">{totalnull}</p>
               )}
             </div>
             <div className="delivery__right-container-button">
-              <Link to="/payment">
+              <Link to={{ pathname: "/payment", total, totalnull }}>
                 <button className="delivery__right-button">
                   Continue to payment
                 </button>
