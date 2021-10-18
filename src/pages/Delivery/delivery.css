@@ -56,6 +56,24 @@
     margin-bottom: 5px;
 }
 
+.delivery__left-input-downsuccess {
+    width: 400px;
+    height: 50px;
+    outline: none;
+    margin-bottom: 5px;
+    border-left: solid green;
+    border-right: solid green;
+}
+
+.delivery__left-input-downwrong {
+    width: 400px;
+    height: 50px;
+    outline: none;
+    margin-bottom: 5px;
+    border-left: solid orange;
+    border-right: solid orange;
+}
+
 .delivery__right {
     /* background: red; */
     width: 30%;
