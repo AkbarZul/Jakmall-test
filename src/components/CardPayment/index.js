@@ -4,10 +4,10 @@ import './card.css'
 
 const CardPayment = (props) => {
     const {name, price, id, onSubmit} = props;
-    console.log('ini id', id)
-    const checkShipment = () => {
-        console.log('ayoooo')
-      }
+    // console.log('ini id', id)
+    // const checkShipment = () => {
+    //     console.log('ayoooo')
+    //   }
     return (
         <>
             <div className='card' onClick={onSubmit}>

@@ -5,56 +5,15 @@ import { BreadcrumbPayment, Back, CardPayment } from "../../components";
 import "./payment.css";
 
 const Payment = () => {
-  const [check, setCheck] = useState(false);
-  const [send, setSend] = useState(false);
-  console.log("ini check", check);
-  const shipment = [
-    {
-      id: 1,
-      name: "Gosend",
-      price: 15000,
-    },
-    {
-      id: 2,
-      name: "JNE",
-      price: 9000,
-    },
-    {
-      id: 3,
-      name: "Personal Counter",
-      price: 29000,
-    },
-  ];
-
-  const Payment = [
-    {
-      id: 1,
-      name: "e-wallet",
-      price: 1500000,
-    },
-    {
-      id: 1,
-      name: "Bank Transfer",
-      price: 1000000,
-    },
-    {
-      id: 1,
-      name: "Virtual Account",
-      price: 500000,
-    },
-  ];
-
-  useEffect(() => {
-    // storing input email
-    localStorage.setItem("shipment", JSON.stringify(shipment));
-    // localStorage.setItem("totalnull", JSON.stringify(totalnull));
-  }, [shipment]);
-
-  const checkShipment = () => {
-   console.log('ini id click', send)
-  };
-
-  console.log(shipment);
+  const [check, setCheck] = useState(0);
+  const [send, setSend] = useState(0);
+  const [coba, setCoba] = useState(0);
+  const [ewallet, setEwallet] = useState(0);
+  const [bank, setBank] = useState(0);
+  const [virtual, setVirtual] = useState(0);
+  const gosend = 15000;
+  const jne = 9000;
+  const personal = 29000;
   return (
     <>
       <BreadcrumbPayment />
@@ -64,38 +23,65 @@ const Payment = () => {
       <div className="payment">
         <div className="payment__left">
           <p className="payment__left-text-up">Shipment</p>
-          <form value={send} onChange={(e) => {
-            setSend(e.target.value)
-          }}>
-            <div
-              className="payment__left-containerbutton"
-            >
-              {shipment.map((item, i) => (
-                <CardPayment
-                  key={i}
-                  id={item.id}
-                  name={item.name}
-                  price={item.price}
-                  onSubmit={checkShipment}
-                />
-              ))}
+          <div className="payment__left-containerbutton">
+            <div className="card" onClick={() => setCoba(1)}>
+              <p className="card__text">Go-Send</p>
+              <p className="card__text" style={{ marginTop: "-7px" }}>
+                15000
+              </p>
             </div>
-          </form>
+
+            <div className="card" onClick={() => setSend(2)}>
+              <p className="card__text">JNE</p>
+              <p className="card__text" style={{ marginTop: "-7px" }}>
+                9000
+              </p>
+            </div>
+
+            <div className="card" onClick={() => setCheck(3)}>
+              <p className="card__text">Personal Counter</p>
+              <p className="card__text" style={{ marginTop: "-7px" }}>
+                29000
+              </p>
+            </div>
+          </div>
           <p className="payment__left-text-up">Payment</p>
-          <div
-            className="payment__left-containerbutton"
-            onClick={() => setCheck(!check)}
-          >
-            {Payment.map((item, i) => (
-              <CardPayment key={i} name={item.name} price={item.price} />
-            ))}
+          <div className="payment__left-containerbutton">
+            <div className="card" onClick={() => setEwallet(1)}>
+              <p className="card__text">e-wallet</p>
+              <p className="card__text" style={{ marginTop: "-7px" }}>
+                1500000
+              </p>
+            </div>
+
+            <div className="card" onClick={() => setBank(2)}>
+              <p className="card__text">Bank Transfer</p>
+              <p className="card__text" style={{ marginTop: "-7px" }}>
+                1000000
+              </p>
+            </div>
+
+            <div className="card" onClick={() => setVirtual(3)}>
+              <p className="card__text">Virtual Account</p>
+              <p className="card__text" style={{ marginTop: "-7px" }}>
+                500000
+              </p>
+            </div>
           </div>
         </div>
         <div className="payment_right">
           <p className="payment__right-text-up">Summary</p>
           <p className="payment__right-subtext-up">10 items purchased</p>
           <p className="payment__right-text-delivery">Delivery estimation</p>
-          <p className="payment__right-subtext-delivery">today by Gosend</p>
+          {coba === 1 ? (
+            <p className="payment__right-subtext-delivery">today by Gosend</p>
+          ) : send === 2 ? (
+            <p className="payment__right-subtext-delivery">2 day by JNE</p>
+          ) : check === 3 ? (
+            <p className="payment__right-subtext-delivery">
+              1 day by Personal Counter
+            </p>
+          ) : null}
           <div className="payment__right-container-cost">
             <p className="payment__right-text-cost">Cost of goods</p>
             <p
@@ -114,15 +100,42 @@ const Payment = () => {
               5,900
             </p>
           </div>
-          <div className="payment__right-container-fee">
-            <p className="payment__right-text-cost">Gosend shipment</p>
-            <p
-              className="payment__right-text-cost"
-              style={{ fontWeight: "bold" }}
-            >
-              5,900
-            </p>
-          </div>
+
+          {coba === 1 ? (
+            <div className="payment__right-container-fee">
+              <p className="payment__right-text-cost">Go-send shipment</p>
+              <p
+                className="payment__right-text-cost"
+                style={{ fontWeight: "bold" }}
+              >
+                {gosend}
+              </p>
+            </div>
+          ) : send === 2 ? (
+            <div className="payment__right-container-fee">
+              <p className="payment__right-text-cost">JNE shipment</p>
+              <p
+                className="payment__right-text-cost"
+                style={{ fontWeight: "bold" }}
+              >
+                {jne}
+              </p>
+            </div>
+          ) : check === 3 ? (
+            <div className="payment__right-container-fee">
+              <p className="payment__right-text-cost">
+                Personal Counter shipment
+              </p>
+              <p
+                className="payment__right-text-cost"
+                style={{ fontWeight: "bold" }}
+              >
+                {personal}
+              </p>
+            </div>
+          ) : null}
+          {/* <p className="payment__right-text-cost">Gosend shipment</p> */}
+
           <div className="payment__right-container-fee">
             <p
               className="payment__right-text-total"
@@ -133,11 +146,25 @@ const Payment = () => {
             <p className="payment__right-text-total">505,900</p>
           </div>
           <div className="payment__right-container-button">
-            <Link to="/payment">
-              <button className="payment__right-button">
-                Pay with e-wallet
-              </button>
-            </Link>
+            {ewallet === 1 ? (
+              <Link to="/payment">
+                <button className="payment__right-button">
+                  Pay with e-wallet
+                </button>
+              </Link>
+            ) : bank === 2 ? (
+              <Link to="/payment">
+                <button className="payment__right-button">
+                  Pay with Bank Transfer
+                </button>
+              </Link>
+            ) : virtual === 3 ? (
+              <Link to="/payment">
+                <button className="payment__right-button">
+                  Pay with Virtual Account
+                </button>
+              </Link>
+            ) : null}
           </div>
         </div>
       </div>

@@ -43,7 +43,11 @@ const Delivery = () => {
     // storing input email
     localStorage.setItem("total", JSON.stringify(total));
     localStorage.setItem("totalnull", JSON.stringify(totalnull));
-  }, [total, totalnull]);
+    localStorage.setItem("cost", JSON.stringify(cost))
+    localStorage.setItem("dropshiping", JSON.stringify(dropshiping))
+    localStorage.setItem("dropshipingnol", JSON.stringify(dropshipingnol))
+    localStorage.setItem("checkbox", JSON.stringify(checkbox))
+  }, [total, totalnull, cost, dropshipingnol, checkbox]);
   const onSubmit = (data, e) => console.log(data, e);
   return (
     <>
