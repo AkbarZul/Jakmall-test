@@ -1,90 +1,162 @@
 .payment {
-    display: flex;
-    flex-direction: row;
-    padding: 0 2% 0 2%;
+  display: flex;
+  flex-direction: row;
+  padding: 0 2% 0 2%;
 }
 
 .payment__left {
-    width: 70%;
-    border-right: 2px solid #fedebe;
+  width: 70%;
+  border-right: 2px solid #fedebe;
+}
+
+.card {
+  width: 130px;
+  height: 50px;
+  border: 1px solid black;
+  margin-right: 10px;
+  padding-left: 5px;
+}
+
+.card__text {
+  font-size: 10px;
 }
 
 .payment__left-text-up {
-    font-size: 30px;
-    font-weight: bold;
-    color: orange;
+  font-size: 30px;
+  font-weight: bold;
+  color: orange;
 }
 
 .payment__left-containerbutton {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
-
 .payment_right {
-    width: 30%;
+  width: 30%;
 }
 
 .payment__right-text-up {
-    font-size: 20px;
-    font-weight: bold;
-    color: orange;
-    margin: 35px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  color: orange;
+  margin: 35px 20px;
 }
 
 .payment__right-subtext-up {
-    font-size: 10px;
-    margin-left: 20px;
-    margin-top: -25px;
+  font-size: 10px;
+  margin-left: 20px;
+  margin-top: -25px;
 }
 
 .payment__right-text-delivery {
-    font-size: 10px;
-    margin-top: 55px;
-    margin-left: 20px;
+  font-size: 10px;
+  margin-top: 55px;
+  margin-left: 20px;
 }
 
 .payment__right-subtext-delivery {
-    font-size: 9px;
-    margin-left: 20px;
-    color: green;
+  font-size: 9px;
+  margin-left: 20px;
+  color: green;
 }
 
 .payment__right-container-cost {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 80px;
 }
 
 .payment__right-text-cost {
-    font-size: 15px;
-    margin-left: 20px;
+  font-size: 15px;
+  margin-left: 20px;
 }
 .payment__right-text-total {
-    font-size: 20px;
-    font-weight: bold;
-    margin-left: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 20px;
 }
 
-.payment__right-container-fee{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-top: -20px;
+.payment__right-container-fee {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: -20px;
 }
 
 .payment__right-container-button {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .payment__right-button {
-    width: 190px;
-    height: 40px;
-    background: orange;
-    color: white;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
+  width: 190px;
+  height: 40px;
+  background: orange;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
+
+@media (max-width: 1073px) {
+  .payment {
+    flex-direction: column;
+  }
+  .payment__left {
+    width: 100%;
+    border-right: none;
+  }
+  .payment_right {
+    width: 100%;
+  }
+  .payment__left-containerbutton {
+    justify-content: space-around;
+  }
+  .card {
+    width: 230px;
+    height: 70px;
+  }
+  .card__text {
+    font-size: 15px;
+  }
+  .payment__right-text-up {
+    margin: 15px 0px;
+  }
+  
+  .payment__right-subtext-up {
+    margin-left: 0px;
+    margin-top: 10px;
+  }
+  
+  .payment__right-text-delivery {
+    margin-top: 15px;
+    margin-left: 0px;
+  }
+  .payment__right-subtext-delivery {
+    margin-left: 0px;
+  }
+  .payment__right-text-cost {
+    margin-left: 0px;
+  }
+  .payment__right-text-total {
+    margin-left: 0px;
+  }
+  .payment__right-container-cost {
+    margin-top: 0px;
+  }
+  .payment__right-container-button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 450px) {
+    .card__text {
+        font-size: 10px;
+      }
+      .card {
+        width: 230px;
+        height: 60px;
+      }
+  }
