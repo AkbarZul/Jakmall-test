@@ -71,18 +71,36 @@ const Finish = () => {
     const init = JSON.parse(local);
     return init || "";
   });
+  let invoice = Math.floor(Math.random() * 100000) + 1;
   return (
     <>
       <BreadcrumbFinish />
 
       <div className="finish">
         <div className="finish__left">
-          <p className="finish__left-text-up">Thank You</p>
-          <p>Order ID: </p>
-          <p>You order will be delivered today with Go-send</p>
-          <Link to="/payment" style={{ textDecoration: "none", color: "black" }}>
-            <Back title="Back to homepage" />
-          </Link>
+          <div>
+            <p className="finish__left-text-up">Thank You</p>
+            <p className="finish__left-subtext-up">Order ID: {invoice} </p>
+            {coba === 1 ? (
+              <p className="finish__left-subtext-up">
+                You order will be delivered today with Go-send
+              </p>
+            ) : send === 2 ? (
+              <p className="finish__left-subtext-up">
+                You order will be delivered 2 day with JNE
+              </p>
+            ) : check === 3 ? (
+              <p className="finish__left-subtext-up">
+                You order will be delivered 1 day with Personal Counter
+              </p>
+            ) : null}
+            <Link
+              to="/payment"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <Back title="Back to homepage" />
+            </Link>
+          </div>
         </div>
 
         <div className="finish__right">
@@ -90,22 +108,24 @@ const Finish = () => {
           <p className="finish__right-subtext-up">10 items purchased</p>
           <p className="finish__right-text-delivery">Delivery estimation</p>
           {coba === 1 ? (
-                      <p className="finish__right-subtext-delivery">today by Gosend</p>
+            <p className="finish__right-subtext-delivery">today by Gosend</p>
           ) : send === 2 ? (
             <p className="finish__right-subtext-delivery">2 day by JNE</p>
           ) : check === 3 ? (
-            <p className="finish__right-subtext-delivery">1 day by Personal Counter</p>
+            <p className="finish__right-subtext-delivery">
+              1 day by Personal Counter
+            </p>
           ) : null}
-          
+
           <p className="finish__right-text-delivery">Payment Method</p>
           {ewallet === 1 ? (
-              <p className="finish__right-subtext-delivery">E-wallet</p>
-            ) : bank === 2 ? (
-                <p className="finish__right-subtext-delivery">Bank Transfer</p>
-            ) : virtual === 3 ? (
-                <p className="finish__right-subtext-delivery">Virtual Account</p>
-            ) : null}
-          
+            <p className="finish__right-subtext-delivery">E-wallet</p>
+          ) : bank === 2 ? (
+            <p className="finish__right-subtext-delivery">Bank Transfer</p>
+          ) : virtual === 3 ? (
+            <p className="finish__right-subtext-delivery">Virtual Account</p>
+          ) : null}
+
           <div className="finish__right-container-cost">
             <p className="finish__right-text-cost">Cost of goods</p>
             <p
@@ -172,32 +192,32 @@ const Finish = () => {
           ) : null}
           {/* <p className="finish__right-text-cost">Gosend shipment</p> */}
           {checkbox === true ? (
-              ewallet === 1 ? (
-                <div className="finish__right-container-fee">
-                  <p
-                    className="finish__right-text-total"
-                    style={{ color: "orange" }}
-                  >
-                    Total
-                  </p>
-                  <p className="finish__right-text-total">
-                    {gosend + jne + personal + total + walletcount}
-                  </p>
-                </div>
-              ) : bank === 2 ? (
-                <div className="finish__right-container-fee">
-                  <p
-                    className="finish__right-text-total"
-                    style={{ color: "orange" }}
-                  >
-                    Total
-                  </p>
-                  <p className="finish__right-text-total">
-                    {gosend + jne + personal + total + bankcount}
-                  </p>
-                </div>
-              ) : virtual === 3 ? (
-                <div className="finish__right-container-fee">
+            ewallet === 1 ? (
+              <div className="finish__right-container-fee">
+                <p
+                  className="finish__right-text-total"
+                  style={{ color: "orange" }}
+                >
+                  Total
+                </p>
+                <p className="finish__right-text-total">
+                  {gosend + jne + personal + total + walletcount}
+                </p>
+              </div>
+            ) : bank === 2 ? (
+              <div className="finish__right-container-fee">
+                <p
+                  className="finish__right-text-total"
+                  style={{ color: "orange" }}
+                >
+                  Total
+                </p>
+                <p className="finish__right-text-total">
+                  {gosend + jne + personal + total + bankcount}
+                </p>
+              </div>
+            ) : virtual === 3 ? (
+              <div className="finish__right-container-fee">
                 <p
                   className="finish__right-text-total"
                   style={{ color: "orange" }}
@@ -208,46 +228,44 @@ const Finish = () => {
                   {gosend + jne + personal + total + virtualcount}
                 </p>
               </div>
-              ) : null 
-          ) : (
-            ewallet === 1 ? (
-                <div className="finish__right-container-fee">
-                  <p
-                    className="finish__right-text-total"
-                    style={{ color: "orange" }}
-                  >
-                    Total
-                  </p>
-                  <p className="finish__right-text-total">
-                    {gosend + jne + personal + totalnull + walletcount}
-                  </p>
-                </div>
-              ) : bank === 2 ? (
-                <div className="finish__right-container-fee">
-                  <p
-                    className="finish__right-text-total"
-                    style={{ color: "orange" }}
-                  >
-                    Total
-                  </p>
-                  <p className="finish__right-text-total">
-                    {gosend + jne + personal + totalnull + bankcount}
-                  </p>
-                </div>
-              ) : virtual === 3 ? (
-                <div className="finish__right-container-fee">
-                <p
-                  className="finish__right-text-total"
-                  style={{ color: "orange" }}
-                >
-                  Total
-                </p>
-                <p className="finish__right-text-total">
-                  {gosend + jne + personal + totalnull + virtualcount}
-                </p>
-              </div>
-              ) : null 
-          )}
+            ) : null
+          ) : ewallet === 1 ? (
+            <div className="finish__right-container-fee">
+              <p
+                className="finish__right-text-total"
+                style={{ color: "orange" }}
+              >
+                Total
+              </p>
+              <p className="finish__right-text-total">
+                {gosend + jne + personal + totalnull + walletcount}
+              </p>
+            </div>
+          ) : bank === 2 ? (
+            <div className="finish__right-container-fee">
+              <p
+                className="finish__right-text-total"
+                style={{ color: "orange" }}
+              >
+                Total
+              </p>
+              <p className="finish__right-text-total">
+                {gosend + jne + personal + totalnull + bankcount}
+              </p>
+            </div>
+          ) : virtual === 3 ? (
+            <div className="finish__right-container-fee">
+              <p
+                className="finish__right-text-total"
+                style={{ color: "orange" }}
+              >
+                Total
+              </p>
+              <p className="finish__right-text-total">
+                {gosend + jne + personal + totalnull + virtualcount}
+              </p>
+            </div>
+          ) : null}
           {/* {ewallet === 1 ? (
             <div className="finish__right-container-fee">
               <p

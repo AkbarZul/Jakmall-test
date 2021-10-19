@@ -7,12 +7,25 @@
 .finish__left {
     width: 70%;
     border-right: 2px solid #fedebe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+
 }
 
 .finish__left-text-up {
     font-size: 30px;
     font-weight: bold;
     color: orange;
+    /* text-align: start; */
+}
+
+.finish__left-subtext-up {
+    font-size: 10px;
+    font-weight: 300;
+    color:black;
+    text-align: justify;
 }
 
 .finish__right {
