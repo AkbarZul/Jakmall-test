@@ -118,13 +118,11 @@ const Delivery = () => {
                   <input
                     placeholder="Dropshipper name"
                     className="delivery__left-input-down"
-                    style={{ width: "300px" }}
                     onChange={(e) => setName(e.target.value)}
                   />
                   <input
                     placeholder="Dropshipper phone number"
                     className="delivery__left-input-down"
-                    style={{ width: "300px" }}
                     onChange={(e) => setPhone(e.target.value)}
                   />
                 </div>
@@ -133,12 +131,10 @@ const Delivery = () => {
                   <input
                     readOnly
                     className="delivery__left-input-down"
-                    style={{ width: "300px" }}
                   />
                   <input
                     readOnly
                     className="delivery__left-input-down"
-                    style={{ width: "300px" }}
                   />
                 </div>
               )}
