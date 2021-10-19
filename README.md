@@ -1,10 +1,12 @@
-# Getting Started with Create React App
+# JAKMALL.com
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About the project
 
-## Available Scripts
+Sebuah web aplikasi yang dibuat dengan menggunakan salah satu framework javascript yaitu [ReactJs](https://reactjs.org/). User bisa mengisi Delivery details, user bisa memilih metode pembayaran dan user bisa memilih metode pengiriman dengan biaya yang berbeda-beda.
 
-In the project directory, you can run:
+## Build with project
+# [ReactJs](https://reactjs.org/)
+# [react-hook-form](https://react-hook-form.com/)
 
 ### `yarn start`
 
