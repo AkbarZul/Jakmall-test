@@ -5,17 +5,39 @@ import { BreadcrumbPayment, Back, CardPayment } from "../../components";
 import "./payment.css";
 
 const Payment = () => {
-  const [check, setCheck] = useState(0);
-  const [send, setSend] = useState(0);
-  const [coba, setCoba] = useState(0);
-  const [ewallet, setEwallet] = useState(0);
-  const [bank, setBank] = useState(0);
-  const [virtual, setVirtual] = useState(0);
+  const [check, setCheck] = useState(() => {
+    const local = localStorage.getItem("check");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [send, setSend] = useState(() => {
+    const local = localStorage.getItem('send');
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [coba, setCoba] = useState(() => {
+    const local = localStorage.getItem("coba");
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [ewallet, setEwallet] = useState(() => {
+    const local = localStorage.getItem('ewallet');
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [bank, setBank] = useState(() => {
+    const local = localStorage.getItem('bank');
+    const init = JSON.parse(local);
+    return init || 0;
+  });
+  const [virtual, setVirtual] = useState(() => {
+    const local = localStorage.getItem('virtual');
+    const init = JSON.parse(local);
+    return init || 0;
+  });
   let gosend = 0;
   let jne = 0;
   let personal = 0;
-  // let totalSemua = gosend + jne + personal + total + totalnull;
-  // const cost = localStorage.getItem("cost")
   const [cost, setCost] = useState(() => {
     const local = localStorage.getItem("cost");
     const init = JSON.parse(local);
@@ -46,6 +68,15 @@ const Payment = () => {
     const init = JSON.parse(local);
     return init || "";
   });
+  useEffect(() => {
+    // storing input email
+    localStorage.setItem("check", JSON.stringify(check));
+    localStorage.setItem("send", JSON.stringify(send));
+    localStorage.setItem("coba", JSON.stringify(coba));
+    localStorage.setItem("ewallet", JSON.stringify(ewallet));
+    localStorage.setItem("bank", JSON.stringify(bank));
+    localStorage.setItem("virtual", JSON.stringify(virtual));
+  }, [check, send, coba, ewallet, bank, virtual]);
   console.log("payment chec", checkbox);
   return (
     <>
@@ -156,7 +187,7 @@ const Payment = () => {
                 className="payment__right-text-cost"
                 style={{ fontWeight: "bold" }}
               >
-                {gosend = 15000}
+                {(gosend = 15000)}
               </p>
             </div>
           ) : send === 2 ? (
@@ -166,7 +197,7 @@ const Payment = () => {
                 className="payment__right-text-cost"
                 style={{ fontWeight: "bold" }}
               >
-                {jne = 9000}
+                {(jne = 9000)}
               </p>
             </div>
           ) : check === 3 ? (
@@ -178,7 +209,7 @@ const Payment = () => {
                 className="payment__right-text-cost"
                 style={{ fontWeight: "bold" }}
               >
-                {personal = 29000}
+                {(personal = 29000)}
               </p>
             </div>
           ) : null}
@@ -191,7 +222,9 @@ const Payment = () => {
               >
                 Total
               </p>
-              <p className="payment__right-text-total">{gosend + jne + personal + total}</p>
+              <p className="payment__right-text-total">
+                {gosend + jne + personal + total}
+              </p>
             </div>
           ) : (
             <div className="payment__right-container-fee">
@@ -201,10 +234,12 @@ const Payment = () => {
               >
                 Total
               </p>
-              <p className="payment__right-text-total">{gosend + jne + personal + totalnull}</p>
+              <p className="payment__right-text-total">
+                {gosend + jne + personal + totalnull}
+              </p>
             </div>
           )}
-          
+
           <div className="payment__right-container-button">
             {ewallet === 1 ? (
               <Link to="/payment">
