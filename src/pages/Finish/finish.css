@@ -1,0 +1,69 @@
+.finish {
+    display: flex;
+    flex-direction: row;
+    padding: 0 2% 0 2%;
+}
+
+.finish__left {
+    width: 70%;
+    border-right: 2px solid #fedebe;
+}
+
+.finish__left-text-up {
+    font-size: 30px;
+    font-weight: bold;
+    color: orange;
+}
+
+.finish__right {
+    width: 30%;
+}
+
+.finish__right-text-up {
+    font-size: 20px;
+    font-weight: bold;
+    color: orange;
+    margin: 35px 20px;
+}
+
+.finish__right-subtext-up {
+    font-size: 10px;
+    margin-left: 20px;
+    margin-top: -25px;
+}
+
+.finish__right-text-delivery {
+    font-size: 10px;
+    margin-top: 55px;
+    margin-left: 20px;
+}
+
+.finish__right-subtext-delivery {
+    font-size: 12px;
+    margin-left: 20px;
+    color: green;
+}
+
+.finish__right-container-cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 80px;
+}
+
+.finish__right-text-cost {
+    font-size: 15px;
+    margin-left: 20px;
+}
+.finish__right-text-total {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.finish__right-container-fee{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: -20px;
+}

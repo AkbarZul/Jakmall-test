@@ -242,19 +242,19 @@ const Payment = () => {
 
           <div className="payment__right-container-button">
             {ewallet === 1 ? (
-              <Link to="/payment">
+              <Link to="/finish">
                 <button className="payment__right-button">
                   Pay with e-wallet
                 </button>
               </Link>
             ) : bank === 2 ? (
-              <Link to="/payment">
+              <Link to="/finish">
                 <button className="payment__right-button">
                   Pay with Bank Transfer
                 </button>
               </Link>
             ) : virtual === 3 ? (
-              <Link to="/payment">
+              <Link to="/finish">
                 <button className="payment__right-button">
                   Pay with Virtual Account
                 </button>
