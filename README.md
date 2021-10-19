@@ -5,8 +5,8 @@
 Sebuah web aplikasi yang dibuat dengan menggunakan salah satu framework javascript yaitu [ReactJs](https://reactjs.org/). User bisa mengisi Delivery details, user bisa memilih metode pembayaran dan user bisa memilih metode pengiriman dengan biaya yang berbeda-beda.
 
 ## Build with project
-# [ReactJs](https://reactjs.org/)
-# [react-hook-form](https://react-hook-form.com/)
+## [ReactJs](https://reactjs.org/)
+## [react-hook-form](https://react-hook-form.com/)
 
 ### `yarn start`
 
